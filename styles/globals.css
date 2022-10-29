@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap");
+
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  background: url(/icons/lobbybg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nelogo {
+  width: 100px;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.nav-bar {
+  display: flex;
+  height: 50px;
+  background-color: rgba(184, 184, 184, 0.2);
+  margin: 10px 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.free-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.5s ease-out;
+}
+
+.joystick {
+  height: 25px;
+  margin-right: 10px;
+  color: white;
+  fill: white;
+}
+
+.cash-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.5s ease-out;
+}
+
+.games {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.card {
+  max-width: 350px;
+  margin: 10px 10px;
+  border-radius: 5px;
+}
+
+.card:last-child {
+  margin-bottom: 10px;
+}
+
+.card-block {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.card-image {
+  background-color: black;
+  padding: 5px 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.game-icon {
+  /* height: 200px; */
+  width: 100%;
+  background-size: cover;
+}
+
+.card-content {
+  background-image: radial-gradient(circle, #035287, #022c49);
+  padding: 15px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.match-name {
+  color: white;
+  font-size: large;
+}
+
+.game-description {
+  color: white;
+  font-size: 16px;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+ul li {
+  color: white;
+  background-color: red;
+  border-radius: 2px;
+  padding: 5px 15px;
+  margin-right: 5px;
+  font-size: 12px;
+  /* font-weight: 600; */
+  /* box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.75); */
+}
+
+li:nth-child(1) {
+  color: #f2a53d;
+  background: #f2a43d4d;
+}
+li:nth-child(2) {
+  color: #f84d4d;
+  background: #f84d4d4d;
+}
+li:nth-child(3) {
+  color: #28d862;
+  background: #28d8634d;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.play-game-btn {
+  border: none;
+  position: relative;
+  margin: 10px 0;
+  padding: 0 20px;
+  display: flex;
+  background-color: yellow;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  height: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  align-self: flex-end;
+}
+
+.play-game-btn:hover {
+  background-color: white;
+  color: yellowgreen;
+}
+
+.container::-webkit-scrollbar
+{
+   background: transparent;
+   width: 1px;
+} 
+
+.container::-webkit-scrollbar-track 
+{
+   -webkit-box-shadow: inset 0 0 6px rgba(10,11,12,0.3);
+}
+
+.container::-webkit-scrollbar-thumb 
+{
+    border-radius: 1px;
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background:rgba(104,102,102,0.8);
+} 
+
+@media screen and (max-width: 400px) {
+  .card {
+    max-width: 400px;
+  }
+  .game-description {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 739px) {
+  .games {
+    justify-content: center;
+  }
+  .card {
+    max-width: 400px;
+  }
+  .game-description {
+    font-size: 12px;
+  }
+  .joystick {
+    height: 20px;
+  }
+  .nelogo {
+    width: 80px;
+  }
+  .cash-play-text,
+  .free-play-text {
+    font-size: 14px;
+  }
+  .nav-bar {
+    height: 40px;
+  }
+}
+@media screen and (max-width: 1109px) {
+  .games {
+    justify-content: center;
+  }
+  .card {
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 1110px) {
+  .games {
+    justify-content: center;
+  }
+  .card {
+    max-width: 350px;
+  }
+}
