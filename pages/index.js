@@ -5,10 +5,10 @@ import config from "../config/config";
 import Shimmer from "../components/Shimmer";
 import Launcher from "./Launcher";
 
-function Home() {
+function Home({gameList}) {
   const [type, setType] = React.useState("free-play");
   const [isLoading, setIsLoading] = React.useState(false);
-  const [gameList, setGameList] = React.useState([]);
+  // const [gameList, setGameList] = React.useState([]);
   const [isPlayClicked, setIsPlayClicked] = React.useState(false);
   const [game , setGame] = React.useState({});
 
@@ -16,24 +16,24 @@ function Home() {
     setIsPlayClicked(true)
   };
 
-  const getGameList = async () => {
-    try {
-      setIsLoading(true);
-      const response = await axios.get(
-        config.url.serverprod +
-          "api/getGamesList?platformId=0&operatorId=demo&isReal=true"
-      );
-      setGameList(response.data);
-      setIsLoading(false);
-    } catch (error) {
-      setIsLoading(false);
-    }
-  };
+  // const getGameList = async () => {
+  //   try {
+  //     setIsLoading(true);
+  //     const response = await axios.get(
+  //       config.url.serverprod +
+  //         "api/getGamesList?platformId=0&operatorId=demo&isReal=true"
+  //     );
+  //     // setGameList(response.data);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     setIsLoading(false);
+  //   }
+  // };
 
 
-  React.useEffect(() => {
-    getGameList();
-  }, [type]);
+  // React.useEffect(() => {
+  //   getGameList();
+  // }, [type]);
 
   return isPlayClicked ? <Launcher /> : (
     <div className="container">
@@ -62,13 +62,24 @@ function Home() {
         <Shimmer />
       ) : (
         <div className="games">
-          {gameList.map((game, index) => (
+          {gameList && gameList?.map((game, index) => (
             <Card key={index} game={game} setIsPlayClicked={setIsPlayClicked} onPlayClick={play} />
           ))}
         </div>
       )}
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const res = await axios.get(config.url.serverprod +
+    "api/getGamesList?platformId=0&operatorId=demo&isReal=true")
+    const { data } = res
+  return {
+    props: {
+      gameList: data,
+    },
+  }
 }
 
 export default Home;
