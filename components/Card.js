@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import config from '../../config/config';
-const Card = ({ game, setIsPlayClicked, onPlayClick}) => {
+import config from '../config/config';
+const Card = ({ game, onPlayClick}) => {
  
   const icon = config.games?.find(item => item?.gameCode.toLowerCase() === game?.gameCode.toLowerCase())?.icon;
   return (

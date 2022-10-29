@@ -1,8 +1,8 @@
 import React from "react";
-import Card from "./components/Card";
+import Card from "../components/Card";
 import axios from "axios";
 import config from "../config/config";
-import Shimmer from "./components/Shimmer";
+import Shimmer from "../components/Shimmer";
 import Launcher from "./Launcher";
 
 function Home() {
