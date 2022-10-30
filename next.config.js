@@ -1,11 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   assetPrefix: './',
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   images: {
-    loader: 'akamai',
-    path: './',
+    loader: 'default',
+    path: '',
+    dangerouslyAllowSVG: true,
+    unoptimized: true,
   }
 }
 

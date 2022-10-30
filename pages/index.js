@@ -4,6 +4,12 @@ import axios from "axios";
 import config from "../config/config";
 import Shimmer from "../components/Shimmer";
 import Launcher from "./Launcher";
+import Image from "next/image";
+import freeplay from "../public/icons/freeplay.svg"
+
+// const myLoader = ({ src }) => {
+//   return `https://example.com/${src}?w=${width}&q=${quality || 75}`
+// }
 
 function Home({gameList}) {
   const [type, setType] = React.useState("free-play");
@@ -11,7 +17,7 @@ function Home({gameList}) {
   // const [gameList, setGameList] = React.useState([]);
   const [isPlayClicked, setIsPlayClicked] = React.useState(false);
   const [game , setGame] = React.useState({});
-
+  console.log(gameList)
   const play = () => {
     setIsPlayClicked(true)
   };
@@ -46,7 +52,7 @@ function Home({gameList}) {
           className="free-play"
           style={{ background: type === "free-play" ? "#30AB65" : null }}
         >
-          <img className="joystick" src="/icons/freeplay.svg" alt="freeplay" />
+          <img className="joystick" src={freeplay} alt="freeplay" />
           <div className="free-play-text">Free To Play</div>
         </div>
         <div
@@ -70,6 +76,8 @@ function Home({gameList}) {
     </div>
   );
 }
+
+
 
 export async function getStaticProps() {
   const res = await axios.get(config.url.serverprod +
